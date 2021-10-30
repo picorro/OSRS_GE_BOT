@@ -42,6 +42,9 @@ async def on_message(message):
                 itemName += (word + ' ')
         if itemName != '':
             itemName = itemName[:-1]
+            if len(itemName) > 100:
+                await message.channel.send('Item name too long')
+                return
             for item in items:
                 if item.name.casefold() == itemName.casefold():
                     price = getItemPrice(f'{item.id}')
