@@ -7,8 +7,6 @@ from osrsbox import items_api
 
 url = 'http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item='
 
-
-file = open('items.json', 'r')
 items = items_api.load()
 
 load_dotenv()
