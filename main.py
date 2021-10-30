@@ -43,17 +43,17 @@ async def on_message(message):
         if itemName != '':
             itemName = itemName[:-1]
             if len(itemName) > 100:
-                await message.channel.send('Item name too long')
+                await message.reply('Item name too long')
                 return
             for item in items:
                 if item.name.casefold() == itemName.casefold():
                     price = getItemPrice(f'{item.id}')
                     if price != '':
-                        await message.channel.send(price + ' gp')
+                        await message.reply(price + ' gp')
                     else:
-                        await message.channel.send(f'{itemName}' + ' is not tradeable')
+                        await message.reply(f'{itemName}' + ' is not tradeable')
                     return
-            await message.channel.send('Could not find item: ' + f'{itemName}')
+            await message.reply('Could not find item: ' + f'{itemName}')
     
 
 client.run(os.getenv('TOKEN'))
